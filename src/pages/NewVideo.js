@@ -34,9 +34,9 @@ const NewVideo = ({ onAddVideo }) => {
   };
 
   return (
-    <div>
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <h2 className="title">Agregar Nuevo Video</h2>
-      <form className="new-video-form" onSubmit={handleSubmit}>
+      <form className="new-video-form" onSubmit={handleSubmit} style={{ width: '100%', maxWidth: '600px' }}>
         <div className="form-group">
           <label htmlFor="title">Título</label>
           <input
@@ -93,6 +93,7 @@ const NewVideo = ({ onAddVideo }) => {
             value={video.description}
             onChange={handleChange}
             required
+            style={{ resize: 'vertical', minHeight: '80px' }}
           ></textarea>
         </div>
         <div className="form-buttons">
