@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/globals.css';
 
-const NewVideo = () => {
+const NewVideo = ({ onAddVideo }) => {
   const [video, setVideo] = useState({
     title: '',
     category: '',
@@ -9,6 +10,7 @@ const NewVideo = () => {
     videoUrl: '',
     description: ''
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +19,8 @@ const NewVideo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(video); 
+    onAddVideo(video);
+    navigate('/');
   };
 
   const handleClear = () => {
